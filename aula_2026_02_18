@@ -1,0 +1,17 @@
+- Base de Conhecimento (PROLOG; SMA; RNA) > Estruturada ou Não Estruturada
+- Raciocínio e deliberação (MB; PROLOG; AG; SMA; RNA) > Dedutivo ou Indutivo
+- Aprendizado de Máquina (SMA; RNA)
+
+---
+
+PROBLEMAS
+- Diagnóstico > Reconhecer Padrão
+- "Empacotamente / Caminho"
+
+---
+
+- Estados > Atributos em um objeto
+- Regras de Transição > Métodos
+- Restrições > if / Condições
+- Lista de Visitados (Hashset)
+- Função Objetivo
