@@ -1,0 +1,11 @@
+Inteligência Artificial - Técnicas ou metodologias
+  - SISTEMAS DE COMPORTAMENTO INTELIGENTE
+    - Base de Conhecimento
+      - Armazenamento de experiência (PROLOG; SMA)
+    - Motor de Raciocínio / Raciocínio Automatizado (Dedução, Indução)
+      - (MÉTODOS DE BUSCA; SMA)
+        - Cegos: Amplitude e profundidade
+        - Heurísticos: Subida de Encosta, Guloso, A*, Algoritmos Genéticos
+    - Aprendizado de Máquina (Reconhecer padrões por repetição)
+      - Redes Neurais
+
