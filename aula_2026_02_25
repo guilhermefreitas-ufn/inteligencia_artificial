@@ -34,32 +34,74 @@ Estado Final (Função Objetivo/Meta)
 
 Regras de Transição
   r1: mover t1 para t2
-    public void moverT1_T2()
+    if(ehValido(t1, t2))
     {
-      t2.push(t1.pop());
+      public void moverT1_T2()
+      {
+        t2.push(t1.pop());
+      }
     }
+    
   r2: mover t1 para t3
-    public void moverT1_T3()
+    if(ehValido(t1, t3))
     {
-      t3.push(t1.pop());
+      public void moverT1_T3()
+      {
+        t3.push(t1.pop());
+      }
     }
+
   r3: mover t2 para t1
-    public void moverT2_T1()
+    if(ehValido(t2, t1))
     {
-      t1.push(t2.pop());
+      public void moverT2_T1()
+      {
+        t1.push(t2.pop());
+      }
     }
+
   r4: mover t2 para t3
-    public void moverT2_T3()
+    if(ehValido(t2, t3))
     {
-      t3.push(t2.pop());
+      public void moverT2_T3()
+      {
+        t3.push(t2.pop());
+      }
     }
+
   r5: mover t3 para t1
-    public void moverT3_T1()
+    if(ehValido(t3, t1))
     {
-      t1.push(t3.pop());
+      public void moverT3_T1()
+      {
+        t1.push(t3.pop());
+      }
     }
+
   r6: mover t3 para t2
-    public void moverT3_T2()
+    if(ehValido(t3, t2))
     {
-      t2.push(t3.pop());
+      public void moverT3_T2()
+      {
+        t2.push(t3.pop());
+      }
     }
+
+Restrição
+  public boolean ehValido(Stack Origem, Stack Destino)
+  {
+    if(Origem.empty())
+    {
+      return false;
+    }
+
+    if(int.Parse(Origem.peek()) > (int.Parse(Destino.peek())))
+    {
+      return false;
+    }
+
+    return true;
+  }
+
+Visitados - Lista, Árvore ou Hashmap
+["[321][][]","[][][]"]
