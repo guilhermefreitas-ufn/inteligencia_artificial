@@ -9,3 +9,57 @@ Inteligência Artificial - Técnicas ou metodologias
     - Aprendizado de Máquina (Reconhecer padrões por repetição)
       - Redes Neurais
 
+  - MÉTODOS DE BUSCA
+    - MODELAGEM DO PROBLEMA / SOLUÇÃO
+      1) Estados (inicial/construtor, intermediário/construtor, final)
+      2) Regras de transição -> métodos que modificam o objeto
+      3) Restrição (estado que não pode ser gerado)
+      4) Visitados (lista, árvore ou hashmap)
+      5) Função Objetivo
+
+A) Problema das Torres de Hanoi
+Estado
+  //toda pilha tem os seguintes comandos: empty, peek, push/add, pop/remove
+  Stack t1 = new Stack();
+  Stack t2 = new Stack();
+  Stack t3 = new Stack();
+
+Estado Inicial
+  t1.push(3)
+  t1.push(2)
+  t1.push(1)
+
+Estado Final (Função Objetivo/Meta)
+  t1.empty() && t2.empty()
+
+Regras de Transição
+  r1: mover t1 para t2
+    public void moverT1_T2()
+    {
+      t2.push(t1.pop());
+    }
+  r2: mover t1 para t3
+    public void moverT1_T3()
+    {
+      t3.push(t1.pop());
+    }
+  r3: mover t2 para t1
+    public void moverT2_T1()
+    {
+      t1.push(t2.pop());
+    }
+  r4: mover t2 para t3
+    public void moverT2_T3()
+    {
+      t3.push(t2.pop());
+    }
+  r5: mover t3 para t1
+    public void moverT3_T1()
+    {
+      t1.push(t3.pop());
+    }
+  r6: mover t3 para t2
+    public void moverT3_T2()
+    {
+      t2.push(t3.pop());
+    }
