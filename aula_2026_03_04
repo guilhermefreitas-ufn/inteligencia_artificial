@@ -1,1 +1,29 @@
+MÉTODOS DE BUSCA
+- Técnica de Profundidade
 
+SUDOKU e MAPA COM OBSTÁCULOS (Java c/ um pacote)
+
+3 Perguntas:
+  - É válido?
+  - Já foi visitado?
+  - É o estado final?
+
+Estados
+  - dimensão = 9
+  - matriz [dimensao, dimensao]
+  Eo = Matriz com números sorteados (1 - dimensao)
+  Ef = qtd_casas_vazias == 0
+
+Regras Transição
+  - depositar em sequencia (1 - dim) no primeiro slot vazio
+
+Restrições
+  - verificar linha
+  - verificar coluna
+  - verificar box (3x3)
+
+Visitados
+  - transforma em string e guarda para comparar
+
+Função Objetivo/Meta
+  - qtd_casas_vazias == 0
