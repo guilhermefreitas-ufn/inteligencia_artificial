@@ -1,4 +1,4 @@
-SUDOKU e MAPA COM OBSTÁCULOS (Java c/ um pacote)
+A) SUDOKU e MAPA COM OBSTÁCULOS (Java c/ um pacote)
 
 MÉTODOS DE BUSCA
 - Técnica de Profundidade
@@ -76,3 +76,28 @@ Visitados
 
 Função Objetivo (é o próprio Estado Final)
   - (linhaEntrada == linhaSaida) && (colunaEntrada == colunaSaida)
+
+B) MISSIONÁRIOS E CANIBAIS
+Há 3 missionários e 3 canibais. Há também um barco que vai da margem esquerda para a margem direita e vice-versa,
+sempre levando um ou duas pessoas. Todas as pessoas estão na margem esquerda e precisam ir para a margem direita.
+Porém, há restrições: em momento algum pode ficar mais canibais do que missionários em uma das margens.
+
+Estrutura de Dados
+  - mE = 0 à 3
+  - cE = 0 à 3
+  - mD = 0 à 3
+  - cD = 0 à 3
+
+Estado Inicial
+  - mE = 3
+  - cE = 3
+  - mD = 0
+  - eD = 0
+
+Estado Final
+  - mE = 0 && cE == 0 && mD == 3 && cD == 3
+
+Restrição
+  - if(cE > mE && mE > 0 || cD > mD && mD > 0) return false
+  - Pode 1 ou 2 pessoas por vez no barco
+
