@@ -1,13 +1,14 @@
+SUDOKU e MAPA COM OBSTÁCULOS (Java c/ um pacote)
+
 MÉTODOS DE BUSCA
 - Técnica de Profundidade
-
-SUDOKU e MAPA COM OBSTÁCULOS (Java c/ um pacote)
 
 3 Perguntas:
   - É válido?
   - Já foi visitado?
   - É o estado final?
 
+SUDOKU
 Estados
   - dimensão = 9
   - matriz [dimensao, dimensao]
@@ -27,3 +28,51 @@ Visitados
 
 Função Objetivo/Meta
   - qtd_casas_vazias == 0
+
+MAPA COM OBSTÁCULOS (Maze Runner)
+Cenário
+  - Matriz [n, n] (char)
+
+Problema/Objetivo
+  - Descobrir um caminho entre Entrada e Saída
+  - Relatar os comandos para chegar até lá
+
+1) Definir Obstáculos (@) em células da matriz de forma aleatória
+2) Sortear a posição linha, coluna da Entrada (E)
+3) Sortear a posição linha, coluna da Saída (S)
+
+Estados
+  - Classe que tenha objetos (estados) contendo:
+    - Matriz [n, n] (char)
+      'E' = Entrada;
+      'S' = Saída;
+      '@' = Obstáculo
+      '' = Vazio
+    - linhaEntrada (int)
+    - colunaEntrada (int)
+    - linhaSaida (int)
+    - colunaSaida (int)
+  - Estado Inicial (Eo)
+    - 'E' sorteado em linha e coluna válido
+    - 'S' sorteado em linha e coluna válido
+    - '@' sorteados em linhas e colunas válidas
+  - Estado Final (Ef)
+    - 'E' na mesma célula que 'S'
+
+Regras de Transição
+  - Cima: linhaEntrada--
+  - Baixo: linhaEntrada++
+  - Esquerda: colunaEntrada--
+  - Direita: colunaEntrada++
+
+Restrições
+  - Cima: linhaEntrada == 0; return false
+  - Baixo: linhaEntrada == n-1; return false
+  - Esquerda: colunaEntrada == 0; return false
+  - Direita: colunaEntrada == n-1; return false
+
+Visitados
+  - String da concatenação de linhaEntrada com colunaEntrada
+
+Função Objetivo (é o próprio Estado Final)
+  - (linhaEntrada == linhaSaida) && (colunaEntrada == colunaSaida)
