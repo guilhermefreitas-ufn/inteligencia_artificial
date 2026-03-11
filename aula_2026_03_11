@@ -38,7 +38,7 @@ RESTRIÇÕES
   • if(cE > mE && mE > 0 || cD > mD && mD > 0) return false
 
 VISITADOS
-  • Vetor de strings contendo a concatenação de "mE", "cE", "mD" e "cD" para impedir "galhos/ramificações" repetidas
+  • Lista de strings contendo a concatenação de "mE", "cE", "mD" e "cD" para impedir "galhos/ramificações" repetidas
 
 FUNÇÃO OBJETIVO
   • mE = 0 && cE == 0 && mD == 3 && cD == 3
