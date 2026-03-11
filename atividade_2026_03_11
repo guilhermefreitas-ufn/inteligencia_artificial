@@ -75,4 +75,4 @@ FUNÇÃO OBJETIVO
   aluno == 'D' && prof == 'D' && zel == 'D' && cient == 'D' && totalTime <= 17
 
 VISITADOS
-  • Vetor de strings contendo a concatenação de 'aluno', 'prof', 'zel', 'cient' e 'lanterna' para impedir "galhos/ramificações" repetidas.
+  • Lista de strings contendo a concatenação de 'aluno', 'prof', 'zel', 'cient' e 'lanterna' para impedir "galhos/ramificações" repetidas.
