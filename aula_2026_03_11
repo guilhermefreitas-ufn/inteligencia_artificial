@@ -23,16 +23,16 @@ Estado Final
   • Todos (3 missionários e 3 canibais) na margem direita.
 
 REGRAS DE TRANSIÇÃO
-  • 2 Missionários E para D; if(mE >= 2) {mE -= 2; mD += 2;} 
-  • 1 Missionário E e 1 Canibal E para D; if(mE >= 1 && cE >= 1) {mE--; cE--; mD++; cD++;}
-  • 2 Canibais E para D; if(cE >= 2) {cE -= 2; cD += 2;}
-  • 2 Missionários D para E; if(mD >= 2) {mD -= 2; mE += 2;} 
-  • 1 Missionário D e 1 Canibal D para E; if(mD >= 1 && cD >= 1) {mD--; cD--; mE++; cE++;}
-  • 2 Canibais D para E; if(cD >= 2) {cD -= 2; cE += 2;}
-  • 1 Missionário E para D; if(mE >= 1) {mE--; mD++;}
-  • 1 Canibal E para D; if(cE >= 1) {cE--; cD++;}
-  • 1 Missionário D para E; if(mD >= 1) {mD--; mE++;}
-  • 1 Canibal D para E; if(cD >= 1) {cD--; cE++;}
+  • 2 Missionários E para D; if(mE >= 2) {mE -= 2; mD += 2;} else {return false}
+  • 1 Missionário E e 1 Canibal E para D; if(mE >= 1 && cE >= 1) {mE--; cE--; mD++; cD++;} else {return false}
+  • 2 Canibais E para D; if(cE >= 2) {cE -= 2; cD += 2;} else {return false}
+  • 2 Missionários D para E; if(mD >= 2) {mD -= 2; mE += 2;} else {return false}
+  • 1 Missionário D e 1 Canibal D para E; if(mD >= 1 && cD >= 1) {mD--; cD--; mE++; cE++;} else {return false}
+  • 2 Canibais D para E; if(cD >= 2) {cD -= 2; cE += 2;} else {return false}
+  • 1 Missionário E para D; if(mE >= 1) {mE--; mD++;} else {return false}
+  • 1 Canibal E para D; if(cE >= 1) {cE--; cD++;} else {return false}
+  • 1 Missionário D para E; if(mD >= 1) {mD--; mE++;} else {return false}
+  • 1 Canibal D para E; if(cD >= 1) {cD--; cE++;} else {return false}
 
 RESTRIÇÕES
   • if(cE > mE && mE > 0 || cD > mD && mD > 0) return false
