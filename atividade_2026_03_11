@@ -44,7 +44,7 @@ ESTADOS
   totalTime = 0
 
 • Estado Final
-	Todos (aluno, prof, zel, cient) no lado esquerdo ('E') com tempo total (totalTime) menor ou igual à 17.
+	Todos (aluno, prof, zel, cient) no lado direita ('D') com tempo total (totalTime) menor ou igual à 17.
 
 REGRAS DE TRANSIÇÃO
   • alunoED; if(lanterna == 'E' && aluno == 'E' && (totalTime + alunoTime) <= 17) {aluno = 'D'; lanterna = 'D'; totalTime += alunoTime} else {return false}
