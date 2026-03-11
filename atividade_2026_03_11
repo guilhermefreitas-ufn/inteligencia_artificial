@@ -47,26 +47,26 @@ ESTADOS
 	Todos (aluno, prof, zel, cient) no lado direita ('D') com tempo total (totalTime) menor ou igual à 17.
 
 REGRAS DE TRANSIÇÃO
-  • alunoED(){ if(lanterna == 'E' && aluno == 'E' && (totalTime + alunoTime) <= 17) {aluno = 'D'; lanterna = 'D'; totalTime += alunoTime} else {return false}}
-  • profED(){ if(lanterna == 'E' && prof == 'E' && (totalTime + profTime) <= 17) {prof = 'D'; lanterna = 'D'; totalTime += profTime} else {return false}}
-  • zelED(){ if(lanterna == 'E' && zel == 'E' && (totalTime + zelTime) <= 17) {zel = 'D'; lanterna = 'D'; totalTime += zelTime} else { return false}}
-  • cientED(){ if(lanterna == 'E' && cient == 'E' && (totalTime + cientTime) <= 17) {cient = 'D'; lanterna = 'D'; totalTime += cientTime} else {return false}}
-  • alunoDE(){ if(lanterna == 'D' && aluno == 'D' && (totalTime + alunoTime) <= 17) {aluno = 'E'; lanterna = 'E'; totalTime += alunoTime} else {return false}}
-  • profDE(){ if(lanterna == 'D' && prof == 'D' && (totalTime + profTime) <= 17) {prof = 'E'; lanterna = 'E'; totalTime += profTime} else {return false}}
-  • zelDE(){ if(lanterna == 'D' && zel == 'D' && (totalTime + zelTime) <= 17) {zel = 'E'; lanterna = 'E'; totalTime += zelTime} else {return false}}
-  • cientDE(){ if(lanterna == 'D' && cient == 'D' && (totalTime + cientTime) <= 17) {cient = 'E'; lanterna = 'E'; totalTime += cientTime} else {return false}}
-  • alunoprofED(){ if(lanterna == 'E' && aluno == 'E' && prof == 'E' && (totalTime + profTime) <= 17) {aluno = 'D'; prof = 'D'; lanterna = 'D'; totalTime += profTime} else {return false}}
-  • alunozelED(){ if(lanterna == 'E' && aluno == 'E' && zel == 'E' && (totalTime + zelTime) <= 17) {aluno = 'D'; zel = 'D'; lanterna = 'D'; totalTime += zelTime} else {return false}}
-  • alunocientED(){ if(lanterna == 'E' && aluno == 'E' && cient == 'E' && (totalTime + cientTime) <= 17) {aluno = 'D'; cient = 'D'; lanterna = 'D'; totalTime += cientTime} else {return false}}
-  • alunoprofDE(){ if(lanterna == 'D' && aluno == 'D' && prof == 'D' && (totalTime + profTime) <= 17) {aluno = 'E'; prof = 'E'; lanterna = 'E'; totalTime += profTime} else {return false}}
-  • alunozelDE(){ if(lanterna == 'D' && aluno == 'D' && zel == 'D' && (totalTime + zelTime) <= 17) {aluno = 'E'; zel = 'E'; lanterna = 'E'; totalTime += zelTime} else {return false}}
-  • alunocientDE(){ if(lanterna == 'D' && aluno == 'D' && cient == 'D' && (totalTime + cientTime) <= 17) {aluno = 'E'; cient = 'E'; lanterna = 'E'; totalTime += cientTime} else {return false}}
-  • profzelED(){ if(lanterna == 'E' && prof == 'E' && zel == 'E' && (totalTime + zelTime) <= 17) {prof = 'D'; zel = 'D'; lanterna = 'D'; totalTime += zelTime} else {return false}}
-  • profcientED(){ if(lanterna == 'E' && prof == 'E' && cient == 'E' && (totalTime + cientTime) <= 17) {prof = 'D'; cient = 'D'; lanterna = 'D'; totalTime += cientTime} else {return false}}
-  • profzelDE(){ if(lanterna == 'D' && prof == 'D' && zel == 'D' && (totalTime + zelTime) <= 17) {prof = 'E'; zel = 'E'; lanterna = 'E'; totalTime += zelTime} else {return false}}
-  • profcientED(){ if(lanterna == 'E' && prof == 'E' && cient == 'E' && (totalTime + cientTime) <= 17) {prof = 'D'; cient = 'D'; lanterna = 'D'; totalTime += cientTime} else {return false}}
-  • zelcientED(){ if(lanterna == 'E' && zel == 'E' && cient == 'E' && (totalTime + cientTime) <= 17) {zel = 'D'; cient = 'D'; lanterna = 'D'; totalTime += cientTime} else {return false}}
-  • zelcientDE(){ if(lanterna == 'D' && cient == 'D' && zel == 'D' && (totalTime + cientTime) <= 17) {cient = 'E'; zel = 'E'; lanterna = 'E'; totalTime += cientTime} else {return false}}
+  • alunoED() { if(lanterna == 'E' && aluno == 'E' && (totalTime + alunoTime) <= 17) {aluno = 'D'; lanterna = 'D'; totalTime += alunoTime;} else {return false;} }
+  • profED() { if(lanterna == 'E' && prof == 'E' && (totalTime + profTime) <= 17) {prof = 'D'; lanterna = 'D'; totalTime += profTime;} else {return false;} }
+  • zelED() { if(lanterna == 'E' && zel == 'E' && (totalTime + zelTime) <= 17) {zel = 'D'; lanterna = 'D'; totalTime += zelTime;} else {return false;} }
+  • cientED() { if(lanterna == 'E' && cient == 'E' && (totalTime + cientTime) <= 17) {cient = 'D'; lanterna = 'D'; totalTime += cientTime;} else {return false;} }
+  • alunoDE() { if(lanterna == 'D' && aluno == 'D' && (totalTime + alunoTime) <= 17) {aluno = 'E'; lanterna = 'E'; totalTime += alunoTime;} else {return false;} }
+  • profDE() { if(lanterna == 'D' && prof == 'D' && (totalTime + profTime) <= 17) {prof = 'E'; lanterna = 'E'; totalTime += profTime;} else {return false;} }
+  • zelDE() { if(lanterna == 'D' && zel == 'D' && (totalTime + zelTime) <= 17) {zel = 'E'; lanterna = 'E'; totalTime += zelTime;} else {return false;} }
+  • cientDE() { if(lanterna == 'D' && cient == 'D' && (totalTime + cientTime) <= 17) {cient = 'E'; lanterna = 'E'; totalTime += cientTime;} else {return false;} }
+  • alunoprofED() { if(lanterna == 'E' && aluno == 'E' && prof == 'E' && (totalTime + profTime) <= 17) {aluno = 'D'; prof = 'D'; lanterna = 'D'; totalTime += profTime;} else {return false;} }
+  • alunozelED() { if(lanterna == 'E' && aluno == 'E' && zel == 'E' && (totalTime + zelTime) <= 17) {aluno = 'D'; zel = 'D'; lanterna = 'D'; totalTime += zelTime;} else {return false;} }
+  • alunocientED() { if(lanterna == 'E' && aluno == 'E' && cient == 'E' && (totalTime + cientTime) <= 17) {aluno = 'D'; cient = 'D'; lanterna = 'D'; totalTime += cientTime;} else {return false;} }
+  • alunoprofDE() { if(lanterna == 'D' && aluno == 'D' && prof == 'D' && (totalTime + profTime) <= 17) {aluno = 'E'; prof = 'E'; lanterna = 'E'; totalTime += profTime;} else {return false;} }
+  • alunozelDE() { if(lanterna == 'D' && aluno == 'D' && zel == 'D' && (totalTime + zelTime) <= 17) {aluno = 'E'; zel = 'E'; lanterna = 'E'; totalTime += zelTime;} else {return false;} }
+  • alunocientDE() { if(lanterna == 'D' && aluno == 'D' && cient == 'D' && (totalTime + cientTime) <= 17) {aluno = 'E'; cient = 'E'; lanterna = 'E'; totalTime += cientTime;} else {return false;} }
+  • profzelED() { if(lanterna == 'E' && prof == 'E' && zel == 'E' && (totalTime + zelTime) <= 17) {prof = 'D'; zel = 'D'; lanterna = 'D'; totalTime += zelTime;} else {return false;} }
+  • profcientED() { if(lanterna == 'E' && prof == 'E' && cient == 'E' && (totalTime + cientTime) <= 17) {prof = 'D'; cient = 'D'; lanterna = 'D'; totalTime += cientTime;} else {return false;} }
+  • profzelDE() { if(lanterna == 'D' && prof == 'D' && zel == 'D' && (totalTime + zelTime) <= 17) {prof = 'E'; zel = 'E'; lanterna = 'E'; totalTime += zelTime;} else {return false;} }
+  • profcientED() { if(lanterna == 'E' && prof == 'E' && cient == 'E' && (totalTime + cientTime) <= 17) {prof = 'D'; cient = 'D'; lanterna = 'D'; totalTime += cientTime;} else {return false;} }
+  • zelcientED() { if(lanterna == 'E' && zel == 'E' && cient == 'E' && (totalTime + cientTime) <= 17) {zel = 'D'; cient = 'D'; lanterna = 'D'; totalTime += cientTime;} else {return false;} }
+  • zelcientDE() { if(lanterna == 'D' && cient == 'D' && zel == 'D' && (totalTime + cientTime) <= 17) {cient = 'E'; zel = 'E'; lanterna = 'E'; totalTime += cientTime;} else {return false;} }
 
 RESTRIÇÕES
   • Não tem.
