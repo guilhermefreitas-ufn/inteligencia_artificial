@@ -1,0 +1,75 @@
+• Problema da travessia da ponte
+
+Há 4 pessoas: cientista, zelador, professora e aluno. Que precisam passar pela ponte.
+
+Cada um tem um tempo de travessia:
+
+aluno: leva 1 minuto para cruzar a ponte
+professora: leva 2 minutos
+zelador: 5 minutos
+cientista: 10 minutos
+
+O problema é: qual a sequência de travessia para que o tempo total seja no máximo de 17 minutos?
+
+Contudo, para cruzar a ponte é preciso usar uma lanterna e no máximo duas pessoas podem cruzar a ponte por vez. Qualquer pessoa cruzando a ponte precisa segurar a lanterna ou ficar perto dela.
+
+Trabalho avaliado é a modelagem:
+	1) Estados
+	2) Regras de Transição
+	3) Restrições
+	4) Visitados
+	5) Função objetivo
+
+---
+
+Estrutura de Dados
+aluno = 'E' or 'D'
+alunoTime = 1
+prof = 'E' or 'D'
+profTime = 2
+zel = 'E' or 'D'
+zelTime = 5
+cient = 'E' or 'D'
+cientTime = 10
+lanterna = 'E' or 'D'
+totalTime = 0
+
+ESTADOS
+• Estado Inicial
+  aluno = 'E'
+  prof = 'E'
+  zel = 'E'
+  cient = 'E'
+  lanterna = 'E'
+  totalTime = 0
+
+• Estado Final/FUNÇÃO OBJETIVO
+  aluno == 'D' && prof == 'D' && zel == 'D' && cient == 'D' && totalTime <= 17
+
+REGRAS DE TRANSIÇÃO
+  • alunoED; if(lanterna == 'E' && aluno == 'E' && (totalTime + alunoTime) <= 17) {aluno = 'D'; lanterna = 'D'; totalTime += alunoTime} else {return false}
+  • profED; if(lanterna == 'E' && prof == 'E' && (totalTime + profTime) <= 17) {prof = 'D'; lanterna = 'D'; totalTime += profTime} else {return false}
+  • zelED; if(lanterna == 'E' && zel == 'E' && (totalTime + zelTime) <= 17) {zel = 'D'; lanterna = 'D'; totalTime += zelTime} else { return false}
+  • cientED; if(lanterna == 'E' && cient == 'E' && (totalTime + cientTime) <= 17) {cient = 'D'; lanterna = 'D'; totalTime += cientTime} else {return false}
+  • alunoDE; if(lanterna == 'D' && aluno == 'D' && (totalTime + alunoTime) <= 17) {aluno = 'E'; lanterna = 'E'; totalTime += alunoTime} else {return false}
+  • profDE; if(lanterna == 'D' && prof == 'D' && (totalTime + profTime) <= 17) {prof = 'E'; lanterna = 'E'; totalTime += profTime} else {return false}
+  • zelDE; if(lanterna == 'D' && zel == 'D' && (totalTime + zelTime) <= 17) {zel = 'E'; lanterna = 'E'; totalTime += zelTime} else {return false}
+  • cientDE; if(lanterna == 'D' && cient == 'D' && (totalTime + cientTime) <= 17) {cient = 'E'; lanterna = 'E'; totalTime += cientTime} else {return false}
+  • alunoprofED; if(lanterna == 'E' && aluno == 'E' && prof == 'E' && (totalTime + profTime) <= 17) {aluno = 'D'; prof = 'D'; lanterna = 'D'; totalTime += profTime} else {return false}
+  • alunozelED; if(lanterna == 'E' && aluno == 'E' && zel == 'E' && (totalTime + zelTime) <= 17) {aluno = 'D'; zel = 'D'; lanterna = 'D'; totalTime += zelTime} else {return false}
+  • alunocientED; if(lanterna == 'E' && aluno == 'E' && cient == 'E' && (totalTime + cientTime) <= 17) {aluno = 'D'; cient = 'D'; lanterna = 'D'; totalTime += cientTime} else {return false}
+  • alunoprofDE; if(lanterna == 'D' && aluno == 'D' && prof == 'D' && (totalTime + profTime) <= 17) {aluno = 'E'; prof = 'E'; lanterna = 'E'; totalTime += profTime} else {return false}
+  • alunozelDE; if(lanterna == 'D' && aluno == 'D' && zel == 'D' && (totalTime + zelTime) <= 17) {aluno = 'E'; zel = 'E'; lanterna = 'E'; totalTime += zelTime} else {return false}
+  • alunocientDE; if(lanterna == 'D' && aluno == 'D' && cient == 'D' && (totalTime + cientTime) <= 17) {aluno = 'E'; cient = 'E'; lanterna = 'E'; totalTime += cientTime} else {return false}
+  • profzelED; if(lanterna == 'E' && prof == 'E' && zel == 'E' && (totalTime + zelTime) <= 17) {prof = 'D'; zel = 'D'; lanterna = 'D'; totalTime += zelTime} else {return false}
+  • profcientED; if(lanterna == 'E' && prof == 'E' && cient == 'E' && (totalTime + cientTime) <= 17) {prof = 'D'; cient = 'D'; lanterna = 'D'; totalTime += cientTime} else {return false}
+  • profzelDE; if(lanterna == 'D' && prof == 'D' && zel == 'D' && (totalTime + zelTime) <= 17) {prof = 'E'; zel = 'E'; lanterna = 'E'; totalTime += zelTime} else {return false}
+  • profcientED; if(lanterna == 'E' && prof == 'E' && cient == 'E' && (totalTime + cientTime) <= 17) {prof = 'D'; cient = 'D'; lanterna = 'D'; totalTime += cientTime} else {return false}
+  • zelcientED; if(lanterna == 'E' && zel == 'E' && cient == 'E' && (totalTime + cientTime) <= 17) {zel = 'D'; cient = 'D'; lanterna = 'D'; totalTime += cientTime} else {return false}
+  • zelcientDE; if(lanterna == 'D' && cient == 'D' && zel == 'D' && (totalTime + cientTime) <= 17) {cient = 'E'; zel = 'E'; lanterna = 'E'; totalTime += cientTime} else {return false}
+
+RESTRIÇÕES
+  • Não tem
+
+VISITADOS
+  • Vetor de strings contendo a concatenação de 'aluno', 'prof', 'zel', 'cient' e 'lanterna' para impedir "galhos/ramificações" repetidas.
