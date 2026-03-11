@@ -43,8 +43,8 @@ ESTADOS
   lanterna = 'E'
   totalTime = 0
 
-• Estado Final/FUNÇÃO OBJETIVO
-  aluno == 'D' && prof == 'D' && zel == 'D' && cient == 'D' && totalTime <= 17
+• Estado Final
+	Todos (aluno, prof, zel, cient) no lado esquerdo ('E') com tempo total (totalTime) menor ou igual à 17.
 
 REGRAS DE TRANSIÇÃO
   • alunoED; if(lanterna == 'E' && aluno == 'E' && (totalTime + alunoTime) <= 17) {aluno = 'D'; lanterna = 'D'; totalTime += alunoTime} else {return false}
@@ -69,7 +69,10 @@ REGRAS DE TRANSIÇÃO
   • zelcientDE; if(lanterna == 'D' && cient == 'D' && zel == 'D' && (totalTime + cientTime) <= 17) {cient = 'E'; zel = 'E'; lanterna = 'E'; totalTime += cientTime} else {return false}
 
 RESTRIÇÕES
-  • Não tem
+  • Não tem.
+
+FUNÇÃO OBJETIVO
+  aluno == 'D' && prof == 'D' && zel == 'D' && cient == 'D' && totalTime <= 17
 
 VISITADOS
   • Vetor de strings contendo a concatenação de 'aluno', 'prof', 'zel', 'cient' e 'lanterna' para impedir "galhos/ramificações" repetidas.
