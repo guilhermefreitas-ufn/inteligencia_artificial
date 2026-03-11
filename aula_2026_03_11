@@ -1,0 +1,60 @@
+AULA ANTERIOR
+• Problema dos Missionários e Canibais
+
+Na margem esquerda de um rio, estão 3 missionários e 3 canibais, e há uma canoa ao alcance.
+O objetivo é levar todos (3 missionários e 3 canibais) para a margem direita.
+A canoa leva no mínimo 1 pessoa e no máximo 2 pessoas por vez.
+Nunca numa margem deve haver mais canibais que missionários.
+
+Estrutura de Dados
+  • mE = 0 à 3
+  • cE = 0 à 3
+  • mD = 0 à 3
+  • cD = 0 à 3
+
+ESTADOS
+Estado Inicial
+  • mE = 3
+  • cE = 3
+  • mD = 0
+  • eD = 0
+
+Estado Final
+  • Todos (3 missionários e 3 canibais) na margem direita.
+
+REGRAS DE TRANSIÇÃO
+  • 2 Missionários E para D; if(mE >= 2) {mE -= 2; mD += 2;} 
+  • 1 Missionário E e 1 Canibal E para D; if(mE >= 1 && cE >= 1) {mE--; cE--; mD++; cD++;}
+  • 2 Canibais E para D; if(cE >= 2) {cE -= 2; cD += 2;}
+  • 2 Missionários D para E; if(mD >= 2) {mD -= 2; mE += 2;} 
+  • 1 Missionário D e 1 Canibal D para E; if(mD >= 1 && cD >= 1) {mD--; cD--; mE++; cE++;}
+  • 2 Canibais D para E; if(cD >= 2) {cD -= 2; cE += 2;}
+  • 1 Missionário E para D; if(mE >= 1) {mE--; mD++;}
+  • 1 Canibal E para D; if(cE >= 1) {cE--; cD++;}
+  • 1 Missionário D para E; if(mD >= 1) {mD--; mE++;}
+  • 1 Canibal D para E; if(cD >= 1) {cD--; cE++;}
+
+RESTRIÇÕES
+  • if(cE > mE && mE > 0 || cD > mD && mD > 0) return false
+
+VISITADOS
+  • String contendo mE, cE, mD e cD para impedir "galhos/ramificações" repetidas
+
+FUNÇÃO OBJETIVO
+  • mE = 0 && cE == 0 && mD == 3 && cD == 3
+
+AULA DE HOJE
+• Problema da travessia da ponte
+
+Há 4 pessoas: cientista, zelador, professora e aluno. Que precisam passar pela ponte.
+
+Cada um tem um tempo de travessia:
+
+aluno: leva 1 minuto para cruzar a ponte
+professora: leva 2 minutos
+zelador: 5 minutos
+cientista: 10 minutos
+
+O problema é: qual a sequência de travessia para que o tempo total seja no máximo de 17 minutos.
+
+Contudo, para cruzar a ponte é preciso usar uma lanterna e no máximo duas pessoas podem cruzar a ponte. Qualquer pessoa cruzando a ponte precisa segurar a lanterna.
