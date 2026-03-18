@@ -1,0 +1,32 @@
+REVISÃO
+  MÉTODOS DE BUSCA (cega, sem informação ou força bruta)
+    > Técnicas de IA para "Motores" de Raciocínio
+      - Raciocínio humano é Dedutivo
+
+    1. Profundidade
+      - Visitados, Pilha (recursão)
+
+    2. Largura ou Amplitude (completo)
+      - Visitados, fila
+      - 1º Estados (estrutura de dados)
+      - 2º Regras de Transição (métodos)
+      - 3º Restrições
+      - 4º Visitados (string)
+      - 5º Função Objetivo
+
+---
+  • Heurística ("dica" ou "com informação")
+    - "Dica" precisa de um especialísta (humano ou matemática)
+    - "Dica" pode ser furada
+    - Dois tipos de Custos
+      > Real - g(n)
+      > Estimado - h(n)
+---
+
+    3. Subida da Encosta (Climb Hill)
+       > Profundidade (usa custo real)
+    4. Guloso (Greedy)
+      > Amplitude (usa custo estimado)
+    5. A*
+      > Amplitude (com correção do custo estimado)
+        - A correção é a soma do custo real acumulado + o custo estimado
