@@ -49,13 +49,21 @@ caminho(O,D,_) :- conecta(0,I,),
 caminho(I,D,_).
 
 
+progenitor(alex,raimundo).
 progenitor(raimundo, eduardo).
 progenitor(eduardo,matheus).
-progenitor(eduardo, joao).
+progenitor(eduardo,joao).
 
 progenitor(adolfo,marzari).
 progenitor(adolfo,livia).
 progenitor(aldolfo_senior, adolfo).
+
+avo(A,N) :- progenitor(A,P),
+progenitor(P,N).
+
+ascendente(A,D) :- progenitor(A,D).
+ascendente(A,D) :- progenitor(A,I),
+ascendente(I,D).
 
 avo(A,N) :- progenitor(A,P),
 progenitor(P,N).
