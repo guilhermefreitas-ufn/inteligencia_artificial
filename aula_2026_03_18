@@ -31,3 +31,31 @@ REVISÃO
     5. A*
       > Amplitude (com correção do custo estimado)
         - A correção é a soma do custo real acumulado + o custo estimado
+
+---
+
+PROLOG (usando Profundidade)
+
+conecta(ss,sm,64).
+conecta(sm,it,18).
+conecta(sm,sil,24).
+conecta(sm,sp,60).
+conecta(it,jc,40).
+conecta(sp,jc,200).
+conecta(jc,sil,90).
+
+caminho(O,D,_) :- conecta(O,D,_).
+caminho(O,D,_) :- conecta(0,I,),
+caminho(I,D,_).
+
+
+progenitor(raimundo, eduardo).
+progenitor(eduardo,matheus).
+progenitor(eduardo, joao).
+
+progenitor(adolfo,marzari).
+progenitor(adolfo,livia).
+progenitor(aldolfo_senior, adolfo).
+
+avo(A,N) :- progenitor(A,P),
+progenitor(P,N).
