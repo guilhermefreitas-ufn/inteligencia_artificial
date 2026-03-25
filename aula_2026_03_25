@@ -1,0 +1,31 @@
+REVISÃO
+  MÉTODOS DE BUSCA (SOLUÇÕES)
+    > Chegar um estado desejado (finaLou aproxima)
+    > Conjunto de passos até o estado desejado
+  
+    1. Motores de Raciocínio
+      > "Cegos" ou "Força Bruta"
+        i. Profundidade (Dedução / "Força Bruta"; é o Motor do Prolog)
+          - Dedução só existe se houver Base de Conhecimento/Dados
+        ii. Largura (Amplitude; fila)
+      > Heurísticos ou Informados
+        i. Subida de Encosta (Profundidade; Olha somente o custo real g(n))
+        ii. Guloso (Largura/amplitude; Olha somente o custo estimado h(n))
+        iii. A* (Largura/amplitude; Usa custo real g(n) e correção com custo estimado h(n))
+        - Tem dois tipos de Custos: Real - g(n); e Estimado - h(n).
+  
+    2. Base de Conhecimento/Dados
+  
+    3. Aprendizado de Máquina (reconhecer padrões por amostras/treinamento; N.S. ou N)
+  
+---
+  
+  Tipos de Problema que IA resolve
+    > Diagnóstico (reconhecer padrões)
+      - Via treinamento / repetição
+    > "Empacotamento" (não se sabe os passos até o Estado Final)
+
+---
+
+25/03/2026
+PROLOG
