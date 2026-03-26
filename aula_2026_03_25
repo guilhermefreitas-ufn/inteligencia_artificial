@@ -28,4 +28,89 @@ REVISÃO
 ---
 
 25/03/2026
+
 PROLOG
+> Fato: Sentença ou predicado ou assertiva
+  Exemplos:
+    papel(alex,professor)
+    papel(marzari,aluno)
+    papel(gustavo,aluno)
+    papel(gustavo,monitor)
+    estado(luz,ligado)
+    estado(arCondicionado,desligado)
+    matriculado(dosReis,jogos,ia)
+    matriculado(dosReis,jogos,design)
+    progenitor(jura,alex)
+    progenitor(jura,tina)
+    progenitor(alex,dante)
+    progenitor(simone,dante)
+
+  - Predicado é uma relação.
+    Exemplo:
+      A relação entre alex e professor é "papel". Ou seja, "papel" é um predicado.
+
+  > Argumentos ou Parâmetros
+    - Objeto (minúsculas)
+    - Literal (aspas duplas)
+    - Variável (primeira letra maiúscula)
+
+SWISH Prolog
+3 "áreas"
+  > Program
+  > Consulta
+  > (Coruja)
+
+  PROGRAM
+  %base.pl
+  %fatos
+    %sentenca ou predicatos ou assinaturas de funcoes
+  
+  jogo("CS","Counter Strike",16,"FPS").
+  jogo("LOL","League of Legends",18,"MOBA").
+  jogo("AID","Alone in the Dark",16,"SU").
+  jogo("GTA","Great Theft Auto",18,"SB").
+  jogo("MC","Minecraft",0,"SB").
+  
+  tipo("SB","Sandbox").
+  tipo("FPS","First Person Shooter").
+  tipo("MOBA","Multiplayer Online Battle Arena").
+  tipo("SU","Survival").
+  
+  %regras
+  	%sentencas com variáveis acompanhadas por :-
+  
+  indicacaolivre(NomeJogo) :-
+      jogo(_,NomeJogo,Idade,_),
+      Idade == 0.
+  
+  %Lê-se: O NomeJogo tem Indicação Livre se, e somente se, tiver Idade igual à 0 (zero)
+  
+  %Exemplo 2
+  %fatos
+  progenitor(hebert,cleber).
+  progenitor(hebert,homer).
+  progenitor(homer,bart).
+  progenitor(homer,lisa).
+  progenitor(homer,meggy).
+  progenitor(margy,bart).
+  progenitor(margy,lisa).
+  progenitor(margy,meggy).
+  progenitor(bart,alex).
+  progenitor(bart,tina).
+  
+  %regras
+  avo(A,N) :-
+      progenitor(A,P),
+      progenitor(P,N).
+  
+  irmaos(A,B) :-
+      progenitor(P,A),
+      progenitor(P,B),
+      A \= B.
+  
+  tio(T,S) :-
+      irmaos(I,T),
+      progenitor(I,S).
+  
+  cunhados(A,B) :-
+  %tarefa de casa
