@@ -26,7 +26,7 @@ personagens(legolas, elfo, arqueiro).  %isso é uma sentença
 personagens(bilbo, hobbit, 'ladrão').  %isso é uma sentença
 personagens(uruk,orc,rei).  %isso é uma sentença
 
-predicado pode ser fato ou regra. Quando é regra tem ":-" (lê-se "se e somente se")
+Predicado pode ser fato ou regra. Quando é regra tem ":-" (lê-se "se e somente se")
   Ex.: estaEm(Lugar, OutroLugar) :-
           localizado(Lugar, OutroLugar).
 
