@@ -1,0 +1,216 @@
+%1. Pré-requisitos: Crie fatos disciplina(Nome) e pre_requisito(Anterior, Posterior).
+%Escreva uma regra pode_cursar(Aluno, Disciplina) que verifica se o aluno já completou os requisitos necessários.
+%vai precisar criar JaCursou(Aluno,Disciplina)
+
+disciplina(algoritmos).
+disciplina(poo).
+disciplina(motores).
+
+pre_requisito(algoritmos, poo).
+pre_requisito(poo, motores).
+
+ja_cursou(guilherme, algoritmos).
+ja_cursou(zamba, poo).
+
+pode_cursar(Aluno, Disciplina) :-
+    ja_cursou(Aluno, PreRequisito),
+    pre_requisito(PreRequisito, Disciplina).
+
+%2. Aprovação: Com fatos nota(Aluno, Disciplina, Valor), crie a regra aprovado(Aluno, Disciplina) (nota ≥ 7.0)
+%e reprovado(Aluno, Disciplina) (nota < 7.0).
+
+nota(guilherme, algoritmos, 10).
+nota(guilherme, poo, 7).
+nota(zamba, poo, 10).
+nota(zamba, motores, 8).
+nota(clarissa, algoritmos, 6).
+nota(clarissa, motores, 3).
+
+aprovado(Aluno, Disciplina) :-
+    nota(Aluno, Disciplina, Nota),
+    Nota >= 7.0.
+
+reprovado(Aluno, Disciplina) :-
+    nota(Aluno, Disciplina, Nota),
+    Nota < 7.0.
+
+%3. Conectividade de Cidades: Defina fatos estrada(CidadeA, CidadeB).
+%Crie a regra pode_viajar(De, Para) que indica se há uma conexão direta.
+%Bônus: discuta por que estrada(a, b) não implica automaticamente estrada(b, a)
+%sem uma regra de simetria.
+
+estrada(bronzeiral, 'boa forja').
+estrada('mato altivo', bronzeiral).
+estrada('arco da gorja', 'mato altivo').
+estrada(bronzeiral, corith).
+
+pode_viajar(De, Para) :-
+    estrada(De, Para).
+
+%Se quiséssemos que poder viajar de a para b implique automaticamente que pode-se
+%viajar de b para a, seria necessário uma regra de simetria ou declarar tanto os
+%fatos de "ida" quanto os de "volta".
+%por exemplo:
+
+%estrada(CA, CB) :-
+%    estrada(CB, CA).
+
+%ou
+
+%estrada(a, b).
+%estrada(b, a).
+
+%4. Localização: Use fatos esta_em(Objeto, Comodo) e comodo_em(Comodo, Casa).
+%Crie a regra localizacao_geral(Objeto, Casa) para inferir onde o objeto está no nível da propriedade.
+
+esta_em(cadeira, cozinha).
+esta_em(computador, quarto).
+esta_em(quadro, sala).
+comodo_em(sala, casa322).
+comodo_em(cozinha, casa247).
+comodo_em(computador, casa247).
+
+localizacao_geral(Objeto, Casa) :-
+    esta_em(Objeto, Comodo),
+    comodo_em(Comodo, Casa),
+	write(Comodo).
+
+%5. Cardápio: Crie fatos ingrediente(Prato, Item) e vegano(Item).
+%Escreva a regra prato_vegano(Prato) que é verdadeira apenas se todos os ingredientes forem veganos
+%(útil para introduzir o conceito de negação ou falha).
+
+ingrediente(pizza, massa).
+ingrediente(pizza, tomate).
+ingrediente(pizza, calabresa).
+ingrediente(pizza, queijo).
+
+ingrediente(salada, alface).
+ingrediente(salada, tomate).
+ingrediente(salada, brocolis).
+ingrediente(salada, rucula).
+
+vegano(tomate).
+vegano(brocolis).
+vegano(rucula).
+
+prato_vegano(Prato) :-
+    ingrediente(Prato, Ingrediente),
+    vegano(Ingrediente).
+
+%6. Streaming: Com fatos filme(Nome, Genero) e usuario_gosta(Usuario, Genero),
+%crie a regra recomendar(Filme, Usuario)
+
+filme(interestelar, sci-fi).
+filme(duna, sci-fi).
+filme(lotr, fantasia).
+filme(hobbit, fantasia).
+filme(alien, horror).
+filme(hannibal, horror).
+
+usuario_gosta(guilherme, fantasia).
+usuario_gosta(zamba, horror).
+usuario_gosta(guilherme, sci-fi).
+usuario_gosta(ricardo, fantasia).
+usuario_gosta(ricardo, horror).
+
+mesmo_genero(Filme1, Filme2) :-
+    filme(Filme1, Genero),
+    filme(Filme2, Genero).
+
+recomendar(Filme, Usuario) :-
+    usuario_gosta(Usuario, Genero),
+    filme(Filme, Genero),
+    mesmo_genero(_, Filme).
+
+%7. Empilhamento: Use fatos sobre(BlocoA, BlocoB) (A está em cima de B) e no_chao(BlocoB).
+%Crie a regra abaixo(X,Y) e a regra bloco_livre(X) (se não há nada sobre ele)
+
+sobre(azul, vermelho).
+sobre(vermelho, amarelo).
+
+no_chao(amarelo).
+
+abaixo(X, Y) :-
+    sobre(Y, X).
+
+abaixo(X, Y) :-
+    sobre(Intermediario, X),
+    sobre(Y, Intermediario).
+
+bloco_livre(X) :-
+    not(abaixo(X,_)).
+
+%8. Zoologia Básica: Crie fatos sobre características (ex: tem_penas(pinguim),
+%poe_ovos (pinguim) ) e regras para classificar: ave(X) :- tem_penas(X), poe_ovos (X).
+
+tem_pelo(dinossauro).
+tem_pelo(cachorro).
+tem_pelo(gato).
+produz_leite(cachorro).
+produz_leite(gato).
+placenta(cachorro).
+placenta(gato).
+
+tem_penas(pardal).
+tem_penas(quero-quero).
+tem_bico(pardal).
+tem_bico(quero-quero).
+poe_ovos(pardal).
+poe_ovos(quero-quero).
+poe_ovos(aranha).
+
+tem_escamas(traira).
+tem_escamas(lambari).
+tem_branquia(traira).
+tem_branquia(lambari).
+aquatico(traira).
+aquatico(lambari).
+aquatico(tartaruga).
+
+mamifero(X) :-
+    tem_pelo(X),
+	produz_leite(X),
+	placenta(X).
+
+ave(X) :-
+    tem_penas(X),
+	tem_bico(X),
+	poe_ovos(X).
+
+peixe(X) :-
+    tem_escamas(X),
+	aquatico(X),
+	tem_branquia(X).
+
+%9. E-commerce: Com fatos cliente(Nome, Saldo) e produto(Item, Preco),
+%crie a regra pode_comprar(Nome, Item).
+cliente(guilherme, 1500).
+cliente(zamba, 10000).
+cliente(clarissa, 300).
+
+produto(monitor, 1000).
+produto(mouse, 100).
+produto(computador, 2500).
+
+pode_comprar(Cliente, Produto) :-
+    produto(Produto, Valor),
+    cliente(Cliente, Saldo),
+    Saldo >= Valor.
+
+%10. Torneio de Jogos: Com fatos venceu(JogadorA, JogadorB),
+%crie uma regra invicto(Jogador) que verifica se ninguém venceu aquele jogador.
+
+venceu(guilherme, matheus).
+venceu(guilherme, lucas).
+venceu(guilherme, bernardo).
+venceu(zamba, guilherme).
+venceu(matheus, bernardo).
+venceu(lucas, matheus).
+venceu(zamba, matheus).
+venceu(zamba, bernardo).
+venceu(zamba, lucas).
+
+invicto(Jogador) :-
+    venceu(Jogador, _),
+    not(venceu(_,Jogador)).
+
