@@ -1,0 +1,113 @@
+%CORREÇÃO DA ATIVIDADE DA AULA ANTERIOR
+
+%==================================================================
+%A questão 3 fala sobre Recursão (tipo for, while, etc) em PROLOG.
+%==================================================================
+
+%1. Pré-requisitos: Crie fatos disciplina(Nome) e pre_requisito(Anterior, Posterior).
+%Escreva uma regra pode_cursar(Aluno, Disciplina) que verifica se o aluno já completou os requisitos necessários.
+%vai precisar criar JaCursou(Aluno,Disciplina)
+
+disciplina(algoritmos).
+disciplina(poo).
+disciplina(motores).
+
+pre_requisito(algoritmos, poo).
+pre_requisito(poo, motores).
+
+ja_cursou(guilherme, algoritmos).
+ja_cursou(zamba, poo).
+
+%se o aluno já cursou o pré-requisito E
+%se ainda não cursou aquela disciplina, pode cursar
+pode_cursar(Aluno, Disciplina) :-
+    disciplina(Disciplina),
+    not(ja_cursou(Aluno,Disciplina)),
+    ja_cursou(Aluno, PreRequisito),
+    pre_requisito(PreRequisito, Disciplina),
+
+%se a disciplina NÃO tem pré-requisito E
+%se ainda não cursou aquela disciplina, pode cursar
+pode_cursar(Aluno, Disciplina) :-
+    disciplina(Disciplina),
+    not(ja_cursou(Aluno,Disciplina)),
+    not(pre_requisito(_,Disciplina)).
+
+%2. Aprovação: Com fatos nota(Aluno, Disciplina, Valor), crie a regra aprovado(Aluno, Disciplina) (nota ≥ 7.0)
+%e reprovado(Aluno, Disciplina) (nota < 7.0).
+
+nota(guilherme, algoritmos, 10).
+nota(guilherme, poo, 7).
+nota(zamba, poo, 10).
+nota(zamba, motores, 8).
+nota(clarissa, algoritmos, 6).
+nota(clarissa, motores, 3).
+
+aprovado(Aluno, Disciplina) :-
+    nota(Aluno, Disciplina, Nota),
+    Nota >= 7.0.
+
+reprovado(Aluno, Disciplina) :-
+    nota(Aluno, Disciplina, Nota),
+    Nota < 7.0.
+
+%3. Conectividade de Cidades: Defina fatos estrada(CidadeA, CidadeB).
+%Crie a regra pode_viajar(De, Para) que indica se há uma conexão direta.
+%Bônus: discuta por que estrada(a, b) não implica automaticamente estrada(b, a)
+%sem uma regra de simetria.
+
+estrada(bronzeiral, 'boa forja').
+estrada('mato altivo', bronzeiral).
+estrada('arco da gorja', 'mato altivo').
+estrada(bronzeiral, corith).
+
+pode_viajar(De, Para) :-
+    estrada(De, Para).
+
+pode_viajar(De, Para) :-
+    estrada(De, Intermediario),
+    pode_viajar(Intermediario,Para).
+
+%Se quiséssemos que poder viajar de a para b implique automaticamente que pode-se
+%viajar de b para a, seria necessário uma regra de simetria ou declarar tanto os
+%fatos de "ida" quanto os de "volta".
+%por exemplo:
+
+%estrada(CA, CB) :-
+%    estrada(CB, CA).
+
+%ou
+
+%estrada(a, b).
+%estrada(b, a).
+
+%==================================================================
+%repetição segue 3 fases clássicas/obrigatórias
+%for (int i = 0; i < 4; i++)
+%i. INICIALIZAÇÃO DA VARIÁVEL DE CONTROLE -> int i = 0
+%ii. TESTE DE PARADA -> i < 4
+%iii. TRANSFORMAÇÃO DA VARIÁVEL DE CONTROLE -> i++
+
+%Exemplo:
+%ii. TESTE DE PARADA
+escreverDecresc(Numero) :-
+  Numero == 0,
+  !. %break
+
+escreverDecresc(Numero) :-
+  weiteln(Numero),
+  Proximo is Numero - 1, %iii. TRANSFORMAÇÃO DA VARIÁVEL DE CONTROLE
+  escreverDecresc(Proximo).
+
+escreverCresc(Numero) :-
+  Numero == 0,
+  !. %break
+
+escreverCresc(Numero) :-
+  Proximo is Numero - 1,
+  escrever(Proximo), %aqui, começa o empilhamento. Ocorre uma parada da execução atual para chamar novamente a função
+  writeln(Numero).
+
+%em prolog regras de recursão sempre são um par e a primeira é sempre a regra de parada
+%==================================================================
+
