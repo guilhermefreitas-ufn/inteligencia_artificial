@@ -6,3 +6,6 @@ ALGORITMO GENÉTICO
 Método de busca heurístico "turbinado".
 
 Ao invés de gerar um estado por vez, faz isso "em massa".
+
+Se baseia totalmente na Teoria de Evolução de Darwin.
+
