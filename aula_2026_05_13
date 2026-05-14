@@ -1,0 +1,63 @@
+Métodos de Busca
+> Estados
+> Regras de Transição
+> Restrições
+> Visitados
+> Herística (nem todos usam)
+
+1. Profundidade
+a. Subida de Enconsta
+- Custo real
+
+2. Amplitude
+a. Guloso
+- Custo estimado
+
+3. Amplitude
+a. A*
+- Custo real + custo estimado
+
+Três perguntas:
+i. É um estado válido
+ii. É o estado final/meta?
+iii. Já foi visitado
+
+Geram árvores de estado com atributos dentro.
+
+4. Algorítmo Genético (AG)
+- Assim como A*, usa heurística
+Atributo = gene
+Estado = cromossomo/indivíduo
+Regras de Transição = seleção + reprodução + mutação
+Fitness = restrições + heurística
+Visitados/árvore (conjunto de estados) = população (conjunto de cromossomos)
+
+- É usado quando 1. se tem muita restrição e 2. não se conhece o estado final/meta.
+
+A seleção leva em consideração a heurística, aptidão ou "fitness". Ou seja,
+em 1º lugar "quão longe (o estado) está das restrições" e, em 2º lugar,
+"quão perto (o estado) está da solução". Geralmente compõe 30% da população.
+Os atributos dos estados dão pontos para eles e um "torneio" entre os estados é
+o que define os selecionados. Aqui NÃO se criam novos indivíduos.
+
+A reprodução escolhe aleatoriamente dois indivíduos (estados), pega (aleatoriamente)
+um número de atributos de um e o restante do outro para gerar um novo indivíduo.
+Os "filhos" geralmente compõem 70% da população. Aqui se criam novos indivíduos.
+
+A mutação funciona quando a população começa a ficar com indivíduos muito parecidos
+entre si (atributos semelhantes). A mutação pega um indivíduo de uma geração e
+altera um atributo aleatório. Com isso, pontuação desse indivíduo pode aumentar ou
+diminuir.
+
+O elitismo é quando, no AG, o melhor (maior pontuação) indivíduo/cromossomo
+sempre avança para a próxima população.
+
+Conforme o AG avança (gerando mais e mais indivíduos), ele deve Evoluir ou
+Convergir para a Solução.
+
+Exemplos:
+
+• https://github.com/alexandrezamberlan/tecnicasIA/tree/master/3%20-%20AG/python
+• rednuht.org/genetic_cars_2/
+• Tramontina "empacotando" containers para China
+• Caixeiro Viajante
