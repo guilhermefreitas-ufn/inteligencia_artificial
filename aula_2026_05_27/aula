@@ -1,0 +1,34 @@
+SISTEMAS MULTIAGENTES
+    - foco é no agente - entidade de sw ou hw autonoma, proativa, flecivel e com comunicação
+        - engine: thread, try-catch, sobrecarga, socket+ip+porta+protocolo
+            - JASON: framework (engine) que crie, gerencia sistemas multiagentes
+
+            • mas2j
+                Projeto = organização do sistema multiagente
+                    1) nome ambiente
+                        Environment
+                    2) os agentes
+                    3) arquitetura
+                        centralizada
+            • asl
+                Agentes
+                    - r1: "papel" de guardar peça(peq).
+                    - r2: "papel" de guardar peca(med).
+                    - r1 & r2: "papel" de guardar peca(gra).
+
+            • java
+                Environment
+                - init()
+                - addPercept()
+                - removePercept()
+                - executeAction()
+
+            - ALMOXARIFADO
+                - Entrada
+                    - peca(peq).
+                    - peca(med).
+                    - peca(gra).
+                - Ciclo
+                    - perceber, planejar, exceutar
+                        - ação no ambiente
+                        - mensagem para outro agente
