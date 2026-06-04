@@ -1,0 +1,32 @@
+REDES NEURAIS = MOMENTO DA COMPUTAÇÃO
+
+    SISTEMAS DE COMPORTAMENTO INTELIGENTE CONSTRUÍDO VIA TECNOLOGIA DE IA
+        - base de conhecimento: prolog + sistemas multiagentes (sma)
+        - motor de raciocínio: métodos de busca (profundidade, largura, subida de encosta, guloso, a*, algoritmos genéticos) + sma
+        - aprendizado de máquina: sma + redes neurais
+    
+    REDES NEURAIS ARTIFICIAIS
+        - inspirada no cérebro humano
+        - composto por unidades de processamento (neurônios artificiais) interconectados
+        - capaz de aprender e generalizar a partir dados
+    
+Resumindo: Técnica de IA que simula o funcionamento do cérebro humano para resolver problemas complexos, via treinamento repetitivo e ajustes de pesos em amostras
+
+
+    
+                                    SISTEMA COMPUTADORIZADO
+------------------------------------------------------------------------------------------------------------------------------------------------
+                      MEMÓRIA SECUNDÁRIA                        RAM = TREINAMENTO
+1ª Fase:            (arquivos numa pasta)          f1 f2 f3     [f1|f2|f3|...|fn]
+                         (positivos)                               Carregamento
+                                                                         v
+                                                            Identificação de padrões -> Supervisionada: +processamento, -tempo, +acurácia
+                                                                                     -> Não supervisionada: ++processamento, +tempo, -acurácia
+-----------------------------------------------------------------------------------------------------------------------------------------------
+2ª Fase (Validação): [arquivos numa pasta]                         Carregamento
+                         [negativos]                                     v
+                                                            Identificação de padrões
+-----------------------------------------------------------------------------------------------------------------------------------------------
+3ª Fase (Testes): X Amostras (para o treinamento quando de acertar 100% -> quase impossível)
+-----------------------------------------------------------------------------------------------------------------------------------------------
+4ª Fase: Gerar o modelo pré-treinado (executável)
